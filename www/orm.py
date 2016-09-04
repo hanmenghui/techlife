@@ -230,6 +230,8 @@ class Model(dict,metaclass=ModelMetaClass):
         args=list(map(self.getValueOrDefault(),self.__fields__))
         args.append(self.getValue(self.__primary__key))
         rows=await  execute(self.__update__,args)
+
+
         if rows!=1:
             logging.warning('Failed to updte by primary key :affected rows:%s'% rows)
 
